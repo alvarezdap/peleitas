@@ -46,6 +46,8 @@ sword_fx = pygame.mixer.Sound("assets/audio/sword.wav")
 sword_fx.set_volume(0.5)
 magic_fx = pygame.mixer.Sound("assets/audio/magic.wav")
 magic_fx.set_volume(0.75)
+count_down_sound = pygame.mixer.Sound("assets/audio/countdownfight.wav")
+count_down_sound.set_volume(0.5)
 
 #load background image
 bg_image = pygame.image.load("assets/images/background/background.jpg").convert_alpha()
@@ -110,6 +112,7 @@ while run:
   else:
     #display count timer
     draw_text(str(intro_count), count_font, RED, SCREEN_WIDTH / 2, SCREEN_HEIGHT / 3)
+    count_down_sound.play()
     #update count timer
     if (pygame.time.get_ticks() - last_count_update) >= 1000:
       intro_count -= 1
